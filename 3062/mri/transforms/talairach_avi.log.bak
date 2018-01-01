@@ -1,0 +1,57 @@
+/usr/local/freesurfer/subjects/3062/mri
+/usr/local/freesurfer/bin/talairach_avi
+--i orig_nu.mgz --xfm transforms/talairach.auto.xfm
+$Id: talairach_avi,v 1.13 2015/12/23 04:25:17 greve Exp $
+Linux parnian 3.13.0-121-generic #170-Ubuntu SMP Wed Jun 14 09:04:33 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+Fri Dec 29 00:27:36 UTC 2017
+mri_convert.bin orig_nu.mgz talsrcimg.img 
+$Id: mri_convert.c,v 1.226 2016/02/26 16:15:24 mreuter Exp $
+reading from orig_nu.mgz...
+TR=0.00, TE=0.00, TI=0.00, flip angle=0.00
+i_ras = (-1, 0, 0)
+j_ras = (0, 0, -1)
+k_ras = (0, 1, 0)
+writing to talsrcimg.img...
+Analyze Output Matrix
+-1.00000   0.00000   0.00000   319.42438;
+ 0.00000   0.00000   1.00000   166.56555;
+ 0.00000  -1.00000   0.00000   644.46057;
+ 0.00000   0.00000   0.00000   1.00000;
+--------------------
+INFO: set hdr.hist.orient to -1
+mpr2mni305 talsrcimg
+Fri Dec 29 00:27:39 UTC 2017
+/usr/local/freesurfer/bin/mpr2mni305 talsrcimg
+$Id: mpr2mni305,v 1.5 2015/12/18 23:56:21 zkaufman Exp $
+target=711-2C_as_mni_average_305
+
+---------------------------------------------------------------------
+analyzeto4dfp talsrcimg -O0 -y
+---------------------------------------------------------------------
+
+$Id: ifh2hdr.c,v 1.3 2007/05/05 10:45:03 nicks Exp $
+Fri Dec 29 00:27:40 2017
+Writing: talsrcimg.4dfp.hdr
+$Id: analyzeto4dfp.c,v 1.2 2007/05/05 00:00:06 nicks Exp $
+Reading: talsrcimg.hdr
+header size 348 bytes
+hdr.dime.datatype	offset=70	value=2
+hdr.dime.bitpix		offset=72	value=8
+hdr.hist.orient		offset=252	value=-1
+dimensionality     4
+dimensions       256       256       256         1
+Reading: talsrcimg.img
+Writing: talsrcimg.4dfp.img
+Writing: talsrcimg.4dfp.ifh
+ifh2hdr talsrcimg -r0to255
+ori=2
+
+---------------------------------------------------------------------
+gauss_4dfp talsrcimg 1.1
+---------------------------------------------------------------------
+
+$Id: gauss_4dfp.c,v 1.3 2009/05/15 21:43:46 nicks Exp $
+Reading: talsrcimg.4dfp.img
+Writing: talsrcimg_g11.4dfp.img
+image dimensions 256 256 256 padded to 288 288 288
+processing volume 1
